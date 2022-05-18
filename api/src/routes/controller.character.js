@@ -4,7 +4,7 @@ const { Character, Episode} = require('../db');
 const getCharacters = async ()=> {
     let arrCharacter = [];
     let apiCharacters ="https://rickandmortyapi.com/api/character";
-    for (let i = 0; i < 42; i++) {
+    for (let i = 0; i < 42 ; i++) {
         const dataUrl = await axios.get(apiCharacters)
         dataUrl.data.results.map((inf) => {
             arrCharacter.push({
@@ -13,7 +13,6 @@ const getCharacters = async ()=> {
                 species: inf.species,
                 origin: inf.origin.name,
                 image: inf.image,
-                created: inf.created,
             })
         })
         apiCharacters = dataUrl.data.info.next;
@@ -37,7 +36,6 @@ const getInfDb = async () => {
             species: mp.species,
             origin: mp.origin,
             image: mp.image,
-            created: mp.created,
         }
         return mapCharactersDb;
     });

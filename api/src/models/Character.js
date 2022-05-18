@@ -29,13 +29,13 @@ module.exports = (sequelize) => {
     },
     created: {
       type: DataTypes.STRING,
-      allowNull: false,
       defaultValue: false,
     },
     createdInDb: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: false,
+      defaultValue: true,
     },
+  },{   timestamps: false,
   });
 };

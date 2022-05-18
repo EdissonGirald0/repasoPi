@@ -36,12 +36,10 @@ let capsEntries = entries.map((entry) => [
   entry[1],
 ])
 sequelize.models = Object.fromEntries(capsEntries)
-const {Character, Episode}= sequelize.models
-
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-
+const {Character, Episode}= sequelize.models
 // Aca vendrian las relaciones
 Character.belongsToMany(Episode, {through: 'episodeId'})
 Episode.belongsToMany(Character, {through: 'episodeId'})
