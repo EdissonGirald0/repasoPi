@@ -21,6 +21,7 @@ const getCharacters = async ()=> {
    }
 const getInfDb = async () => {
     const arrCharacterDb = await Character.findAll({
+        attributes:["id", "name", "species", "origin", "imagen"],
         include: {
             model: Episode,
             attributes: ["name"],
