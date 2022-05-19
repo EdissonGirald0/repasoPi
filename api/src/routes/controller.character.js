@@ -29,22 +29,12 @@ const getInfDb = async () => {
             },
         },
     });
-    const mapCharactersDb = arrCharacterDb.map((mp) => {
-        return {
-            id: mp.id,
-            name: mp.name,
-            species: mp.species,
-            origin: mp.origin,
-            image: mp.image,
-        }
-        return mapCharactersDb;
-    });
+    return arrCharacterDb;
 }
-
 const allCharacters = async () => {
     const charactersApi = await getCharacters();
-    const characterDb = await getInfDb();
-    const charactersConcat = charactersApi.concat(characterDb);
+    const arrCharacterDb = await getInfDb();
+    const charactersConcat = charactersApi.concat(arrCharacterDb);
     return charactersConcat;
 };
    module.exports = {

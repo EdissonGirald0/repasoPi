@@ -16,19 +16,21 @@ router.post('/character', async (req, res) => {
             species,
             origin,
             imagen,
-            created
+            created,
+            episodes
         } = req.body;
         const newCharacter = await Character.create({
             name,
             species,
             origin,
             imagen,
-            created
+            created,
+            episodes
         })
         const traerEpisodeDb = await Episode.findAll({
-            where: {name: 'Rickmurai Jack'}
+            where: {name: episodes }
         });
-        await newCharacter.addEpisode(traerEpisodeDb);
+        await newCharacter.addEpisodes(traerEpisodeDb);
         res.status(201).json('personaje Creado exitosamente')
     }
     catch (error) {
